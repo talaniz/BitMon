@@ -12,12 +12,12 @@ So far, you can only register your account username and password, log-in, and se
 
 How can I get it?
 --
-All you need to do is download and run the client! The client requires Python3, but should work on any computer capable of running Python 3. I will have specific instructions for Windows coming soon. Linux and Mac users can just run the command below to get started.
+All you need to do is download and run the client! The client requires Python3, but should work on any computer capable of running Python 3. Linux and Mac users can just run the command below to get started:
 
 ```
 wget -O bitmon-client.py http://bitmonga.me/client && python3 bitmon-client.py
 ```
-
+Windows users have a few extra steps. First, you have to download and install Python. You can download and install Python from [here](https://www.python.org/downloads/). Any version of Python 3 should work, but try to find the newest. Next, you need to download the game client. If you [right click, save link as on this link here](https://bitmonga.me/client), you can save this file anywhere you like on your computer. Installing at least Python 3.3 will included a Python Launcher for Windows, so you should be able to double-click and run the script as is. Please note, however, that the autoupdater might not work entirely well with Windows. As I learn more about how Python acts on Windows, I will try to fix this.
 What is planned?
 ==
 Monsters
