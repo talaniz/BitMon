@@ -59,6 +59,12 @@ def check_type_advantage(type1,type2):
 
 ####Flask App Routes - The bulk of what makes it work.
 
+@app.route('/startercheck')
+def starter_check():
+    user = request.args.get('user')
+    check = check_if_has_monsters(user)
+    return check
+
 @app.route('/')
 def show_log():
     with open('log.html','r') as f:

@@ -65,6 +65,10 @@ Your choice:
 '''))
     if choice == 1:
         while True:
+            check = get("https://bitmonga.me/startercheck?user={0}".format(user)).text
+            if check == "1":
+                print("You have already selected a starter!")
+                break
             starter_select = int(input('''
 ========================================================
 -----------------Choose a starter-----------------------
