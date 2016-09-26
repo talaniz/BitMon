@@ -17,6 +17,7 @@ All you need to do is download and run the client! The client requires Python3, 
 ```
 wget -O bitmon-client.py http://bitmonga.me/client && python3 bitmon-client.py
 ```
+After the first run, you would then only have to run `python3 bitmon-client.py` from then on. You shouldn't have to run `wget` more than once.
 Windows users have a few extra steps. First, you have to download and install Python. You can download and install Python from [here](https://www.python.org/downloads/). Any version of Python 3 should work, but try to find the newest. Next, you need to download the game client. If you [right click, save link as on this link here](https://bitmonga.me/client), you can save this file anywhere you like on your computer. Installing at least Python 3.3 will included a Python Launcher for Windows, so you should be able to double-click and run the script as is. Please note, however, that the autoupdater might not work entirely well with Windows. As I learn more about how Python acts on Windows, I will try to fix this.
 What is planned?
 ==
