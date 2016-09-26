@@ -10,7 +10,9 @@ with open(__file__,'r') as f: curver = f.read()
 if curver != webver:
     print("New update found! Installing!")
     with open(__file__,'w') as f: f.write(webver)
-    print("Installed! Please launch again!")
+    print("Installed! Relaunching...")
+    from subprocess import call
+    call(['python3',__file__])
     exit()
 else: print("No update found!")
 

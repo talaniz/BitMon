@@ -63,7 +63,7 @@ def check_type_advantage(type1,type2):
 def starter_check():
     user = request.args.get('user')
     check = check_if_has_monsters(user)
-    return check
+    return str(check)
 
 @app.route('/')
 def show_log():
