@@ -15,7 +15,7 @@ How can I get it?
 All you need to do is download and run the client! The client requires Python3, but should work on any computer capable of running Python 3. I will have specific instructions for Windows coming soon. Linux and Mac users can just run the command below to get started.
 
 ```
-wget -O bitmon-client.py http://bitmonga.me:8383/client && python3 bitmon-client.py
+wget -O bitmon-client.py http://bitmonga.me/client && python3 bitmon-client.py
 ```
 
 What is planned?
