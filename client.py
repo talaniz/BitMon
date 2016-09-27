@@ -49,29 +49,7 @@ if answer == 2:
     srv += 'register?user={0}&pass={1}&ipaddr={2}&email={3}'.format(user,password,ipaddr,email)
     response = get(url=srv)
     print(response.text)
-    exit()
-
-
-while True:
-    srv = "https://bitmonga.me/"
-    print("What would you like to do?")
-    choice = int(input('''
-==============================
------------Main Menu----------
-==============================
-1 - Select Starter
-2 - Log out
-==============================
-
-Your choice: 
-'''))
-    if choice == 1:
-        while True:
-            check = get("https://bitmonga.me/startercheck?user={0}".format(user)).text
-            if check == "1":
-                print("You have already selected a starter!")
-                break
-            starter_select = int(input('''
+    starter_select = int(input('''
 ========================================================
 -----------------Choose a starter-----------------------
 ========================================================
@@ -83,23 +61,34 @@ Defense  | 12           | 13           | 5
 ========================================================
 Your choice: 
 '''))
-            if starter_select == 1:
-                srv = 'https://bitmonga.me/selectstarter?user={0}&pass={1}&ipaddr={2}&starter=Yursba'.format(user,password,ipaddr)
-                response = get(url=srv)
-                print(response.text)
-                break
-            if starter_select == 2:
-                srv = 'https://bitmonga.me/selectstarter?user={0}&pass={1}&ipaddr={2}&starter=Grumsden'.format(user,password,ipaddr)
-                response = get(url=srv)
-                print(response.text)
-                break
-            if starter_select == 3:
-                srv = 'https://bitmonga.me/selectstarter?user={0}&pass={1}&ipaddr={2}&starter=Hermyle'.format(user,password,ipaddr)
-                response = get(url=srv)
-                print(response.text)
-                break
-            else:
-                print("Please make a valid choice!\n")
-    if choice == 2:
+    if starter_select == 1:
+        srv = 'https://bitmonga.me/selectstarter?user={0}&pass={1}&ipaddr={2}&starter=Yursba'.format(user,password,ipaddr)
+        response = get(url=srv)
+        print(response.text)
+    if starter_select == 2:
+        srv = 'https://bitmonga.me/selectstarter?user={0}&pass={1}&ipaddr={2}&starter=Grumsden'.format(user,password,ipaddr)
+        response = get(url=srv)
+        print(response.text)
+    if starter_select == 3:
+        srv = 'https://bitmonga.me/selectstarter?user={0}&pass={1}&ipaddr={2}&starter=Hermyle'.format(user,password,ipaddr)
+        response = get(url=srv)
+        print(response.text)
+
+    exit()
+
+
+while True:
+    srv = "https://bitmonga.me/"
+    print("What would you like to do?")
+    choice = int(input('''
+==============================
+-----------Main Menu----------
+==============================
+1 - Log out
+==============================
+
+Your choice: 
+'''))
+    if choice == 1:
         print("Goodbye!")
         exit()
