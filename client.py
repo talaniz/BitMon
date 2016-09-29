@@ -50,7 +50,7 @@ def login():
  password = getpass("Password: ").encode()
  password = hashlib.md5(password).hexdigest()
  response = get(srv + 'login?user={0}&pass={1}&ipaddr={2}'.format(user,password,ipaddr)).text
- if "correct" in response:
+ if "correct" or "is no" in response:
   print(response)
  else:
   logged_in = 1
