@@ -25,7 +25,8 @@ srv = 'https://bitmonga.me/'
 def main_menu():
  global logged_in
  if logged_in == 0:
-  answer = int(input('''======================
+  try:
+   answer = int(input('''======================
 | Welcome to Bitmon! |
 ======================
 | 1 - Login          |
@@ -35,9 +36,11 @@ def main_menu():
 | 3 - Exit           |
 ======================
 Please make a selection: '''))
+  except ValueError: return "Please make a valid, numerical selection!"
   if answer == 1: login()
   if answer == 2: register()
   if answer == 3: exit()
+  else: print("Please make a valid selection from 1 to 3!")
  else: exit()
 
 
