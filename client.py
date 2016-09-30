@@ -54,7 +54,7 @@ Please make a selection: '''))
          padding = ' ' * (12 - len(user))
          paduser = user + padding
          answer = int(input('''=================================
-| {0} | Money: {1}     |
+| {0} | Money: {1}    |
 +-------------------------------+
 |Location: Coming Soon          |
 +-------------------------------+
