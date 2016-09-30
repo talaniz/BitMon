@@ -20,6 +20,8 @@ ipaddr = get('https://api.ipify.org').text
 global logged_in
 global user
 user = ''
+global password
+password = ''
 logged_in = 0
 srv = 'https://bitmonga.me/'
 
@@ -39,13 +41,20 @@ def main_menu():
 Please make a selection: '''))
         except ValueError: return "Please make a valid, numerical selection!"
         if answer == 1: login()
-        if answer == 2: register()
-        if answer == 3: exit()
+        if answer == 2:
+            register()
+            select_starter(user,password)
+        if answer == 3:
+            print("Goodbye!")
+            exit()
     else:
-        player_info = get_player_info(user)
-        money = player_info[1]
-        answer = int(input('''=================================
-| {0}          | Money: {1}     |
+#        player_info = get_player_info(user)
+#        money = player_info[1]
+         money = 5000
+         padding = ' ' * (12 - len(user))
+         paduser = user + padding
+         answer = int(input('''=================================
+| {0} | Money: {1}     |
 +-------------------------------+
 |Location: Coming Soon          |
 +-------------------------------+
@@ -55,10 +64,11 @@ Please make a selection: '''))
 |7 - Search    |8 - Logout      |
 | for players  |                |
 +-------------------------------+
-Please make a selection: '''.format(user,money)))
-        if answer == 8:
+Please make a selection: '''.format(paduser,money)))
+         if answer == 8:
+            print("Logging out...")
             logout()
-        else:
+         else:
             print("This feature is coming soon.")
 
 
@@ -70,18 +80,25 @@ def get_player_info(user):
 
 def login():
     global user
+    global password
     global logged_in
     user = input("Username: ").lower()
     password = getpass("Password: ").encode()
     password = hashlib.md5(password).hexdigest()
     response = get(srv + 'login?user={0}&pass={1}&ipaddr={2}'.format(user,password,ipaddr)).text
-    if "correct" or "is no" in response:
+    if ("correct" or "is no") in response:
         print(response)
     else:
         logged_in = 1
         print(response)
 
+def logout():
+    global logged_in
+    logged_in = 0
+
 def register():
+    global user
+    global password
     while True:
         user = input("Username: ").lower()
         if not 6 <= len(user) <= 12 or not user.isalnum():
@@ -97,6 +114,24 @@ def register():
         break
     print(get(srv + 'register?user={0}&pass={1}&ipaddr={2}&email={3}'.format(user,password,ipaddr,email)).text)
 
+def select_starter(a,b):
+    string = srv + '/selectstarter?user={0}&pass={1}&ipaddr={2}&starter='.format(a,b,ipaddr)
+    choice = int(input('''
+================================================
+Name:       | Type:        | Atk:    | Def:    |
+------------------------------------------------
+[1]Grumsden | Earth        | 15      | 13      |
+------------------------------------------------
+[2]Hermyle  | Wind         | 17      | 11      |
+------------------------------------------------
+[3]Yursba   | Life         | 14      | 14      |
+================================================
+Please make a choice: '''))
+    if choice == 1: string += 'Grumsden'
+    if choice == 2: string += 'Hermyle'
+    if choice == 3: string += 'Yursba'
+    response = get(string).text
+    print(response)
 
 while True:
     main_menu()

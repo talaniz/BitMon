@@ -142,15 +142,15 @@ def select_starter():
     cxn.commit()
     muuid = str(uuid())
     if selection == "Yursba":
-        cur.execute("INSERT INTO {0} VALUES('{1}', 'Yursba', 'Nova', 1, 17, 12, 0)".format(table_name,muuid))
+        cur.execute("INSERT INTO {0} VALUES('{1}', 'Yursba', 'Life', 1, 14, 14, 0)".format(table_name,muuid))
         cxn.commit()
         cxn.close()
     if selection == "Grumsden":
-        cur.execute("INSERT INTO {0} VALUES('{1}', 'Grumsden', 'Wind', 1, 15, 13, 0)".format(table_name,muuid))
+        cur.execute("INSERT INTO {0} VALUES('{1}', 'Grumsden', 'Earth', 1, 15, 13, 0)".format(table_name,muuid))
         cxn.commit()
         cxn.close()
     if selection == "Hermyle":
-        cur.execute("INSERT INTO {0} VALUES('{1}', 'Hermyle', 'Earth', 1, 20, 5, 0)".format(table_name,muuid))
+        cur.execute("INSERT INTO {0} VALUES('{1}', 'Hermyle', 'Wind', 1, 17, 11, 0)".format(table_name,muuid))
         cxn.commit()
         cxn.close()
     with open('log.html','a') as f:
@@ -158,4 +158,4 @@ def select_starter():
     return "You have chosen {0} as your starter!".format(selection)
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=8383)
+    app.run(host="0.0.0.0", port=8383)
