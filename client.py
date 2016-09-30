@@ -42,8 +42,12 @@ Please make a selection: '''))
         except ValueError: return "Please make a valid, numerical selection!"
         if answer == 1: login()
         if answer == 2:
-            register()
-            select_starter(user,password)
+            response = register()
+            if "taken" in response:
+                print(response)
+            else:
+                print(response)
+                select_starter(user,password)
         if answer == 3:
             print("Goodbye!")
             exit()
@@ -86,7 +90,7 @@ def login():
     password = getpass("Password: ").encode()
     password = hashlib.md5(password).hexdigest()
     response = get(srv + 'login?user={0}&pass={1}&ipaddr={2}'.format(user,password,ipaddr)).text
-    if ("correct" or "is no") in response:
+    if response != "Success!":
         print(response)
     else:
         logged_in = 1
@@ -112,7 +116,7 @@ def register():
         password = hashlib.md5(password.encode()).hexdigest()
         email = input("Email address: ")
         break
-    print(get(srv + 'register?user={0}&pass={1}&ipaddr={2}&email={3}'.format(user,password,ipaddr,email)).text)
+    return get(srv + 'register?user={0}&pass={1}&ipaddr={2}&email={3}'.format(user,password,ipaddr,email)).text
 
 def select_starter(a,b):
     string = srv + '/selectstarter?user={0}&pass={1}&ipaddr={2}&starter='.format(a,b,ipaddr)
