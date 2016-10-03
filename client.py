@@ -39,7 +39,9 @@ def main_menu():
 | 3 - Exit           |
 ======================
 Please make a selection: '''))
-        except ValueError: print("Please make a valid, numerical selection!")
+        except ValueError:
+            print("Please make a valid, numerical selection!")
+            exit()
         if answer == 1: login()
         if answer == 2:
             response = register()
