@@ -11,11 +11,11 @@ app = flask.Flask(__name__)
 def get_player_position(ckuser):
     cxn = sqlite3.connect('bitmon.db')
     cur = cxn.cursor()
-    position = []
+    position = '('
     cur.execute("SELECT xpos FROM players WHERE username='{0}'".format(ckuser))
-    position.append(cur.fetchone()[0])
+    position += str(cur.fetchone()[0]) + ','
     cur.execute("SELECT ypos FROM players WHERE username='{0}'".format(ckuser))
-    position.append(cur.fetchone()[0])
+    position += str(cur.fetchone()[0]) + ')'
     cxn.close()
     return position
 
@@ -64,6 +64,18 @@ def starter_check():
     user = request.args.get('user')
     check = check_if_has_monsters(user)
     return str(check)
+
+@app.route('/getinfo')
+def get_info():
+    user = request.args.get('user')
+    position = get_player_position(user)
+    cxn = sqlite3.connect('bitmon.db')
+    cur = cxn.cursor()
+    cur.execute("SELECT money FROM players WHERE username='{0}'".format(user))
+    money = cur.fetchone()[0]
+    cxn.close()
+    info = '{0};;{1};;{2}'.format(user,money,position)
+    return info
 
 @app.route('/')
 def show_log():

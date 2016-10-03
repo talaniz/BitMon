@@ -52,15 +52,19 @@ Please make a selection: '''))
             print("Goodbye!")
             exit()
     else:
-#        player_info = get_player_info(user)
-#        money = player_info[1]
-         money = 5000
+         player_info = get_player_info(user)
+         money = str(player_info[1])
+         location = player_info[2]
          padding = ' ' * (12 - len(user))
          paduser = user + padding
+         padding2 = ' ' * (20 - len(location))
+         location += padding2
+         padding3 = ' ' * (7 - len(money))
+         money += padding3
          answer = int(input('''=================================
-| {0} | Money: {1}    |
+| {0} | Money: {1} |
 +-------------------------------+
-|Location: Coming Soon          |
+|Location: {2} |
 +-------------------------------+
 |1 - Move Left |2 - Move Right  |
 |3 - Move Up   |4 - Move Down   |
@@ -68,7 +72,7 @@ Please make a selection: '''))
 |7 - Search    |8 - Logout      |
 | for players  |                |
 +-------------------------------+
-Please make a selection: '''.format(paduser,money)))
+Please make a selection: '''.format(paduser,money,location)))
          if answer == 8:
             print("Logging out...")
             logout()
