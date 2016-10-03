@@ -39,7 +39,7 @@ def main_menu():
 | 3 - Exit           |
 ======================
 Please make a selection: '''))
-        except ValueError: return "Please make a valid, numerical selection!"
+        except ValueError: print("Please make a valid, numerical selection!")
         if answer == 1: login()
         if answer == 2:
             response = register()
@@ -51,6 +51,8 @@ Please make a selection: '''))
         if answer == 3:
             print("Goodbye!")
             exit()
+        else:
+            print("Please make a valid selection from 1-3.")
     else:
          player_info = get_player_info(user)
          money = str(player_info[1])
