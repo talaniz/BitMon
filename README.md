@@ -29,6 +29,7 @@ Alternatively, you can run:
 
 ```
 sudo wget -O /usr/bin/bitmon https://bitmonga.me/client
+sudo chmod +x /usr/bin/bitmon
 ```
 
 This will save the client into a directory on your system path so that you can launch simply by running `bitmon`.
