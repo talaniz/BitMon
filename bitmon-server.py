@@ -57,6 +57,18 @@ def check_type_advantage(type1,type2):
     types = { "Nova-Earth" : 2, "Earth-Nova" : 0.5, "Nova-Wind" : 0.5, "Wind-Nova" : 2, "Earth-Wind" : 0.5, "Wind-Earth" : 2, "Nova-Nova" : 1, "Earth-Earth" : 1, "Wind-Wind" : 1 }
     return types[string]
 
+
+####Item list dictionary:
+items = {
+    "Basic Trap" : "A basic monster trap used to capture BitMon.",
+    "Blue Herb" : "A small, blue herb that will restore 10 health.",
+    "Advanced Trap" : "A monster trap that doubles your capture rate on BitMon.",
+    "Perfect Trap" : "An unfailing monster trap. This will capture anything.",
+    "Boat" : "Allows for travel over water.",
+    "Red Herb" : "A bitter tasting herb that will restore 50 health.",
+}
+
+
 ####Flask App Routes - The bulk of what makes it work.
 
 @app.route('/startercheck')
