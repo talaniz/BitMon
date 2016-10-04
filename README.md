@@ -25,6 +25,14 @@ wget -O bitmon-client.py http://bitmonga.me/client && python3 bitmon-client.py
 ```
 After the first run, you would then only have to run `python3 bitmon-client.py` from then on. You shouldn't have to run `wget` more than once.
 
+Alternatively, you can run:
+
+```
+sudo wget -O /usr/bin/bitmon https://bitmonga.me/client
+```
+
+This will save the client into a directory on your system path so that you can launch simply by running `bitmon`.
+
 Windows users are kind of out of luck for the moment. I will be creating a portable installation of the PuTTY SSH client that is preconfigured to run the client, but that will have to wait.
 
 What is planned?
