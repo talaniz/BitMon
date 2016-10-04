@@ -17,6 +17,8 @@ def get_player_position(ckuser):
     cur.execute("SELECT ypos FROM players WHERE username='{0}'".format(ckuser))
     position += str(cur.fetchone()[0]) + ')'
     cxn.close()
+    detail = locations[position]
+    position += " - {0}".format(detail)
     return position
 
 def check_if_user_exists(ckuser):
@@ -68,6 +70,43 @@ items = {
     "Red Herb" : "A bitter tasting herb that will restore 50 health.",
 }
 
+####Locations dictionary:
+locations = {
+    "(0,0)" : "Nexus",
+    "(-1,0)" : "Nexus",
+    "(-1,-1)" : "BitForest",
+    "(-1,-2)" : "BitForest",
+    "(0,-1)" : "BitForest",
+    "(0,-2)" : "BitForest",
+    "(1,-1)" : "BitForest",
+    "(1,-2)" : "BitForest",
+    "(-5,5)" : "Tirade Desert",
+    "(-5,4)" : "Tirade Desert",
+    "(-5,3)" : "Tirade Desert",
+    "(-4,5)" : "Tirade Desert",
+    "(-4,4)" : "Tirade Desert",
+    "(-5,2)" : "Bit City",
+    "(-4,3)" : "Bit City",
+    "(-4,2)" : "Bit City",
+    "(-3,4)" : "Bit City",
+    "(-3,3)" : "Bit City",
+    "(-3,2)" : "Bit City",
+    "(0,5)" : "Victor Mountains",
+    "(1,5)" : "Victor Mountains",
+    "(2,5)" : "Victor Mountains",
+    "(3,5)" : "Victor Mountains",
+    "(4,5)" : "Victor Mountains",
+    "(5,5)" : "Victor Mountains",
+    "(1,4)" : "Victor Mountains",
+    "(2,4)" : "Victor Mountains",
+    "(3,4)" : "Town of Victor",
+    "(4,4)" : "Victor Mountains",
+    "(5,4)" : "Victor Mountains",
+    "(2,3)" : "Victor Mountains",
+    "(3,3)" : "Victor Mountains",
+    "(4,3)" : "Victor Mountains",
+    "(3,2)" : "Victor Mountains",
+}
 
 ####Flask App Routes - The bulk of what makes it work.
 
