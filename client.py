@@ -163,6 +163,6 @@ def select_starter(a,b):
             else: continue
     response = get(string).text
     d.msgbox(response,title="Congratulations!")
-
+    main_menu()
 while True:
     main_menu()
