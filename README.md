@@ -34,7 +34,7 @@ sudo chmod +x /usr/bin/bitmon
 
 This will save the client into a directory on your system path so that you can launch simply by running `bitmon`.
 
-Windows users are kind of out of luck for the moment. I will be creating a portable installation of the PuTTY SSH client that is preconfigured to run the client, but that will have to wait.
+Windows users can download the .zip file included here. Once extracted, run the .exe in the folder and hit "Connect". It really is that easy for you guys. (Linux and Mac users could also, technically, run it this super easy way through Wine.)
 
 What is planned?
 ==
